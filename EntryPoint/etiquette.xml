@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Type can be "proforma","quote", or "normal"-->
+<label xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+    <name>Test Estelle Test</name>
+    <prescription>Sondalis HP 1L amimentation entérale</prescription>
+    <date>04 June 2004</date>
+    <time>19:00</time>
+</label>

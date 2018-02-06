@@ -19,22 +19,23 @@ namespace FOP
         }
         public static void GeneratePdf(string foFile, string pdfFile)
         {
-            OutputStream os = new BufferedOutputStream(new FileOutputStream(new java.io.File(pdfFile)));
+            OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(new java.io.File(pdfFile)));
 
             try
             {
                 FopFactory fopFactory = FopFactory.newInstance(new java.net.URI("."));
-                Fop fop = fopFactory.newFop("application/pdf", os);
+                Fop fop = fopFactory.newFop("application/pdf", outputStream);
                 javax.xml.transform.TransformerFactory factory = javax.xml.transform.TransformerFactory.newInstance();
                 javax.xml.transform.Transformer transformer = factory.newTransformer();
                 javax.xml.transform.Source source = new javax.xml.transform.stream.StreamSource(new java.io.File(foFile));
                 javax.xml.transform.Result result = new javax.xml.transform.sax.SAXResult(fop.getDefaultHandler());
                 transformer.transform(source, result);
+               
             }
 
             finally
             {
-                os.close();
+                outputStream.close();
             }
         }
     }
